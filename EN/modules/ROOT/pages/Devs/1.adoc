@@ -1,27 +1,54 @@
+
 :sectnums:
 :sectnumlevels: 5
 
-:imagesdir: ./_images
 
-= IVORYSQL framework design
-== Objective
+== Versions Inroduction
 
-- In order to minimize changes to the original Postgres, it is compatible with Oracle. We need to implement a framework for dual-parser, dual-port, modal PLPGSQL to implement PLiSQL. The implementation flowchart is as follows:
+[**Release Date: June 28, 2023**]
 
-image::p10.png[]
+IvorySQL 3.0 is based on PostgreSQL 16 and includes various fixes and new features from IvorySQL 2.3 onwards.
 
-== Function
+This version is compatible with IvorySQL 2.X and does not require a dump/restore for users running IvorySQL 1.X.
 
-=== Dual-port design
+IvorySQL 3.0 includes various fixes from PostgreSQL 15.3, including improved sorting performance and compression, logging and configuration enhancements, more fine-tuned logical replication options, and more. For more detailed updates and bug fixes in PostgreSQL 16, see the official https://www.postgresql.org/docs/release/15.3/[PostgreSQL 16 Release Notes] .
 
-- The ivorysql port 5432 is kept compatible with the original Postgres situation, so Ivorysql uses another separate port to log in, which defaults to 1521. Log in from this port, and the Oracle compatibility mode is used by default. If you need to log in from port 5432 and also enter compatibility mode, you need to set it through the compatible_mode parameters;
+== Known Issues
 
-=== Parser module design
+* No issues have been found.
 
-- In order to minimize the interference between Oracle syntax and Postgres syntax, a parser module has been added to handle oracle-related syntax;
+== Enhancements
 
-=== Added PL\iSQL procedural language
+* No feature enhancements.
 
--Similarly, in order to reduce the conflict between Oracle compatibility and Postgres syntax, a separate set of Oracle-specific test cases is designed,This set of test cases is a copy of Postgres' original test framework;
+== Fixed issue
 
+* No issues fixed.
+
+== Source Code
+
+IvorySQL contains 2 main code repositories, the database IvorySQL code bin, and the IvorySQL blog bin.
+
+* IvorySQL code bin: https://github.com/IvorySQL/IvorySQL[https://github.com/IvorySQL/IvorySQL]
+* IvorySQL blog bin: https://github.com/IvorySQL/Ivory-www[https://github.com/IvorySQL/Ivory-www]
+
+== Contributors
+
+The following individuals have contributed to this release as patch authors, committers, reviewers, testers, or issue reporters.
+
+- Cary Huang
+- Grant Zhou
+- Yang Tan
+- Jie Wang
+- Shuainan Mu
+- Hongyuan Zhang
+- Shoubo Wang
+- Jiao Ren
+- Zhekai Xiao
+- Huajian Jin
+- Lily Wang
+- Songjin Zhou
+- M.Imran Zaheer
+
+**https://github.com/IvorySQL/IvorySQL/commits/Ivory_REL_2_3[Full Update Log]**
 

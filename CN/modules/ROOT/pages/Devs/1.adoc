@@ -1,26 +1,52 @@
 :sectnums:
 :sectnumlevels: 5
-:imagesdir: ./_images
-
-= ivorysql框架设计
-
-== 目的
-- 为了对原有的postgres改动最小的前提下，实现对oracle兼容。我们需要实现双parser、双端口、模式PLPGSQL实现PL\iSQL的框架。实现流程图如下：
-
-image::p10.png[]
-
-== 功能
-
-=== 双端口设计
-
-- 保持了ivorysql 5432端口兼容原有postgres情况，因此 Ivorysql采用另一个独立的端口登录，默认为1521。从该端口登录，默认采用oracle兼容模式。如果需要从5432端口登录且还要进入兼容模式，则需要通过compatible_mode参数进行设置;
-
-=== parser模块设计
-
-- 为了将oracle语法与postgres语法间的相互干扰降到最低，因此新增parser模块，用于处理oracle相关的语法;
-
-=== 新增PL\iSQL过程语言
-
-- 同样为了减少oracle兼容与postgres语法不同而导致测试用例冲突得情况，因此单独设计了一套oracle专用的测试用例。该套测试用例由postgres原有测试框架拷贝修改而来;
 
 
+== 版本介绍
+
+[**发行日期: 2023年10月xx日**]
+
+IvorySQL3.0 基于 PostgreSQL16 并包含 IvorySQL 2.3 之后的各种修复和新功能。
+
+此版本与 IvorySQL 2.X 兼容，并且不需要为运行 IvorySQL 1.X 的用户进行转储/恢复。
+
+IvorySQL 3.0 包含来自 PostgreSQL 16 的各种修复，包括改进的排序性能和压缩、日志记录和配置增强、更微调的逻辑复制选项等。有关 PostgreSQL 16  中更详细的更新和错误修复，请参阅官方 https://www.postgresql.org/docs/release/15.3/[PostgreSQL 15.3 发行说明] 。
+
+== 已知问题
+
+* 暂未发现问题。
+
+== 增强功能
+
+* 未做功能增强。
+
+== 问题修复
+
+* 暂未发现问题。
+
+== 源代码
+
+IvorySQL主要包含2个代码仓库，数据库IvorySQL代码仓、IvorySQL博客仓：
+
+* IvorySQL代码仓： https://github.com/IvorySQL/IvorySQL[https://github.com/IvorySQL/IvorySQL]
+* IvorySQL博客仓： https://github.com/IvorySQL/Ivory-www[https://github.com/IvorySQL/Ivory-www]
+
+== 贡献人员
+
+以下个人作为补丁作者、提交者、审阅者、测试者或问题报告者为本版本做出了贡献。
+
+- Cary Huang
+- Grant Zhou
+- 谭洋
+- 王杰
+- 穆帅楠
+- 张洪源
+- 王守波
+- 任娇
+- 肖哲凯
+- 金华建
+- 王丽
+- Songjin Zhou
+- M.Imran Zaheer
+
+**https://github.com/IvorySQL/IvorySQL
